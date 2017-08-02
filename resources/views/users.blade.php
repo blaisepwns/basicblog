@@ -15,7 +15,9 @@
 			<td>{{ $user->username }}</td>
 			<td>{{ $user->email }}</td>
 			<td>{{ $user->gender }}</td>
-			<td><div class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span></div></td>
+			<?= Form::open(['route' => ['users.destroy', $user], 'method' => 'DELETE']) ?>
+				<td><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span></button></td>
+            <?= Form::close() ?>
 		</tr>
 		@endforeach
 	</table>

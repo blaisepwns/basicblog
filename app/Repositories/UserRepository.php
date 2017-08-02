@@ -13,5 +13,15 @@ class UserRepository
         return User::all();
     }
 
+    public function persist (User $user) 
+    {
+    	return $user->save();
+    }
+
+    public function delete (User $user) 
+    {
+    	return $user->delete();
+    }
+
     
 }

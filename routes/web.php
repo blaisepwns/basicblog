@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome')->with(['posts' => App\Post::all()]);
 });
 
-Route::resource('/users', 'UserController');
+Route::group(['middleware' => 'auth'], function() {
+	Route::resource('/users', 'UserController', ['except' => 'create']);
+});
 
 Auth::routes();
 

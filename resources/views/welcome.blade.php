@@ -10,7 +10,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <strong><?= $post->title ?></strong> <br>
-                <small>by <b><i> <?= $post->user->username ?> </i></b></small>
+                <small>by <a href="{{ route('users.show', $post->user) }}"><b><i> <?= $post->user->username ?> </i></b></a></small>
             </div>
             <div class="panel-body">
                 <?= $post->content ?>

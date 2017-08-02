@@ -1,0 +1,16 @@
+<?php
+namespace App\Factories;
+
+use App\User;
+use Hash;
+
+class UserFactory
+{
+
+    public function newUser()
+    {
+        $user           = new User();
+        $user->password = Hash::make('123qwe');
+        return $user;
+    }
+}
