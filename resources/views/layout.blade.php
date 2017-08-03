@@ -1,8 +1,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Blog</title>
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    <title>Blog</title><!-- 
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}"> -->
+    <link rel="stylesheet" href="{{ URL::to(mix('css/app.css')) }}">
 </head>
 <body>
     
@@ -13,9 +14,9 @@
             <ul class="nav navbar-nav">
                 @if (Auth::check())
                 <li><a href="/home">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
                 @endif
                 <li><a href="/">Posts</a></li>
-                <li><a href="/users">Users</a></li>
             </ul>
             @if (Route::has('login'))
                 <ul class="nav navbar-nav navbar-right">
