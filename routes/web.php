@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('/users', 'UserController', ['except' => 'create']);
+	Route::post('posts/create', 'PostController@store');
 });
 
 Auth::routes();

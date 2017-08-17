@@ -7,6 +7,9 @@ use Facades\App\Repositories\UserRepository;
 use Facades\App\Factories\UserFactory;
 use App\User;
 
+use App\Http\Requests\UserEditRequest;
+
+
 class UserController extends Controller
 {
     public function index () 
@@ -28,7 +31,7 @@ class UserController extends Controller
     	]);
     }
 
-    public function update (User $user) 
+    public function update(UserEditRequest $request, User $user) 
     {
     	return $this->save($user);
     }
@@ -39,15 +42,17 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
-    public function edit () 
+    public function edit (User $user) 
     {
-    	
+    	return view('users.edit', [
+            'user' => $user,
+        ]);
     }
 
     public function save (User $user) 
     {
     	$user->fill(request()->all());
         UserRepository::persist($user);
-        return redirect()->route('users');
+        return redirect()->route('users.index');
     }
 }
